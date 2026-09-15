@@ -153,7 +153,45 @@ footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--line)}
   .oigrid{grid-template-columns:1fr}
 }
 </style>
-</head><body><div class="top"><div class="brand">ES-Quant-Desk<span class="tag">un sistema costruito per rifiutare</span></div><div class="tmeta"><span class="pill stop">Pipeline ferma al cancello 7</span><span class="hd">HEAD 69b4c09 · 2026-09-15 18:57 UTC</span></div></div><div class="shell"><nav aria-label="Sezioni"><div class="grp">Ipotesi</div><a class="nl on" data-s="verdetto" href="#verdetto"><span class="dot" style="background:#D4634A"></span>Verdetto</a><a class="nl" data-s="rumore" href="#rumore"><span class="dot" style="background:#4D96F0"></span>Osservato vs rumore</a><a class="nl" data-s="cancelli" href="#cancelli"><span class="dot" style="background:#E0A33E"></span>I dodici cancelli</a><a class="nl" data-s="config" href="#config"><span class="dot" style="background:#858D99"></span>Le configurazioni</a><div class="grp">Sistema</div><a class="nl" data-s="dati" href="#dati"><span class="dot" style="background:#4FB07C"></span>I dati</a><a class="nl" data-s="salute" href="#salute"><span class="dot" style="background:#4FB07C"></span>Salute del sistema</a><a class="nl" data-s="difetti" href="#difetti"><span class="dot" style="background:#E0A33E"></span>Difetti intercettati</a><a class="nl" data-s="aperto" href="#aperto"><span class="dot" style="background:#D4634A"></span>Cosa resta aperto</a></nav><main><noscript><style>.sec{display:block !important}nav{display:none}main{max-width:940px;margin:0 auto}</style><div class="nsbanner">JavaScript disattivato: tutte le sezioni sono mostrate in sequenza.</div></noscript><section id="verdetto" class="sec on">
+</head><body><div class="top"><div class="brand">ES-Quant-Desk<span class="tag">un sistema costruito per rifiutare</span></div><div class="tmeta"><span class="pill stop">Pipeline ferma al cancello 7</span><span class="hd">HEAD 7a2598b · 2026-09-15 21:18 UTC</span></div></div><div class="shell"><nav aria-label="Sezioni"><div class="grp">Adesso</div><a class="nl on" data-s="adesso" href="#adesso"><span class="dot" style="background:#4FB07C"></span>Adesso</a><a class="nl" data-s="attende" href="#attende"><span class="dot" style="background:#E0A33E"></span>Aspetta te</a><a class="nl" data-s="storico" href="#storico"><span class="dot" style="background:#858D99"></span>Storico ipotesi</a><div class="grp">Ipotesi (ORB)</div><a class="nl" data-s="verdetto" href="#verdetto"><span class="dot" style="background:#D4634A"></span>Verdetto ORB</a><a class="nl" data-s="rumore" href="#rumore"><span class="dot" style="background:#4D96F0"></span>Osservato vs rumore</a><a class="nl" data-s="cancelli" href="#cancelli"><span class="dot" style="background:#E0A33E"></span>I dodici cancelli</a><a class="nl" data-s="config" href="#config"><span class="dot" style="background:#858D99"></span>Le configurazioni</a><div class="grp">Sistema</div><a class="nl" data-s="dati" href="#dati"><span class="dot" style="background:#4FB07C"></span>I dati</a><a class="nl" data-s="salute" href="#salute"><span class="dot" style="background:#4FB07C"></span>Salute del sistema</a><a class="nl" data-s="difetti" href="#difetti"><span class="dot" style="background:#E0A33E"></span>Difetti intercettati</a><a class="nl" data-s="aperto" href="#aperto"><span class="dot" style="background:#D4634A"></span>Cosa resta aperto</a></nav><main><noscript><style>.sec{display:block !important}nav{display:none}main{max-width:940px;margin:0 auto}</style><div class="nsbanner">JavaScript disattivato: tutte le sezioni sono mostrate in sequenza.</div></noscript><section id="adesso" class="sec on">
+  <h2>Adesso <span class="pill ok">sistema attivo</span></h2>
+  <div class="kpi">
+    <div class="card"><div class="kn">3</div>
+      <div class="kl">fase corrente<br><span class="dim">3 — ricerca alpha (ORB chiusa NO_EDGE_DETECTED; H1/H2 in preparazione, nessun trial consumato)</span></div></div>
+    <div class="card"><div class="kn mono">7a2598b</div>
+      <div class="kl">ultimo commit<br><span class="dim">2026-09-15 21:18 UTC</span></div></div>
+    <div class="card"><div class="kn">8 / 20</div>
+      <div class="kl">prove residue nella famiglia<br>
+      <span class="dim">12 consumate · HF_ORB_OPENING_RANGE</span></div></div>
+  </div>
+  <table class="tbl">
+    <tbody>
+      <tr><td class="k">In lavorazione</td><td>Dashboard v4 — nuova prima scheda «Adesso», canale NOW.md, storico ipotesi</td></tr>
+      <tr><td class="k">Prossimo passo</td><td>Rimisura di H1 (HF_OVERNIGHT_GAP_FADE) sul frame congelato 16 anni, anno peggiore completo come base</td></tr>
+      <tr><td class="k">Ipotesi attiva</td><td>nessuna</td></tr>
+    </tbody>
+  </table>
+  <p class="note dim">Il «prossimo passo» è scritto a mano in <span class="mono">docs/NOW.md</span>
+  e aggiornato prima di ogni commit: non è deducibile dai file, quindi ha un canale proprio.</p>
+  <h3>Ultimi commit</h3>
+  <div class='gl'><div class='gl-h'><span class='gnm mono'>7a2598b</span></div><div class='gd'>feat(dashboard-v4): prima scheda «Adesso» + canale NOW.md + storico ipotesi — ipotesi in corso SENZA numeri, tasso di sopravvivenza SOLO accanto alla null</div></div>
+</section><section id="attende" class="sec">
+  <h2>Aspetta te <span class="pill stop">9 decisioni</span></h2>
+  <p class="note">Ognuna di queste è una decisione umana non ancora presa. Il sistema
+  <b>non</b> le aggira con un valore di comodo: resta fermo (fail-closed) finché non le
+  ratifichi. Il numero è il conto delle voci bloccate, non un giudizio.</p>
+  <div class='gl'><div class='gl-h'><span class='gnm'>Componenti di costo G2/G3/G4/G5</span><span class='b b-blk'>attende te</span></div><div class='gd'>ODR costi UNPOPULATED (P-4) — decisione umana, fail-closed</div></div><div class='gl'><div class='gl-h'><span class='gnm'>7 soglie statistics.*</span><span class='b b-blk'>attende te</span></div><div class='gd'>D-114 PROPOSED, non ratificata — ex-ante sul frame congelato</div></div><div class='gl'><div class='gl-h'><span class='gnm'>5 soglie robustezza G6</span><span class='b b-blk'>attende te</span></div><div class='gd'>D-115 PROPOSED, non ratificata — ex-ante sul frame congelato</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Floor screening.orb_min_trades</span><span class='b b-blk'>attende te</span></div><div class='gd'>D-110 PROPOSED, non ratificata — distribuzione empirica frame congelato</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Finestra OOS ratificata 1095d in G5</span><span class='b b-blk'>attende te</span></div><div class='gd'>ODR-02/D-097 presente ma non inlined — deliberatamente assente dal file</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Cancello 7 (Tier-1/Tier-2 divergence)</span><span class='b b-blk'>attende te</span></div><div class='gd'>🔴 OQ-16 / D-045 — Tier-2 non costruito, strutturalmente irraggiungibile</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Split ratificato</span><span class='b b-blk'>attende te</span></div><div class='gd'>D-082 — span 16y non congelato; il subset ~2y è correttamente rifiutato</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Calendario di sessione RTH di produzione</span><span class='b b-blk'>attende te</span></div><div class='gd'>🔴 OQ-17 / D-101 — richiesto DATO ESTERNO CME (non inferibile)</div></div><div class='gl'><div class='gl-h'><span class='gnm'>ODR aperte (calibrazione/governance)</span><span class='b b-blk'>attende te</span></div><div class='gd'>ODR-02/03/04/05/07/08/09/10/12 — decisioni umane, mai defaultate</div></div>
+</section><section id="storico" class="sec">
+  <h2>Storico delle ipotesi</h2>
+  <p class="note">Ogni ipotesi che il sistema ha aperto. Quelle <b>in corso</b> compaiono
+  con nome, famiglia e stato, ma <b>senza alcun numero</b> fino alla chiusura: un risultato
+  parziale non è un risultato. Solo le ipotesi chiuse portano un aggregato — e anche allora
+  il tasso di sopravvivenza si mostra unicamente accanto al suo valore sotto rumore.</p>
+  <h3>Chiuse</h3>
+  <div class='gl'><div class='gl-h'><span class='gnm'>Opening Range Breakout</span><span class='b b-fail'>chiusa — terminale «nessun vantaggio»</span></div><div class='gd'>12 configurazioni contate come 1 sola prova della famiglia (D-053). Respinta entro le soglie, holdout mai toccato (D-116).<br><span class='dim'>tasso di sopravvivenza: <b>non disponibile</b> — una sola ipotesi chiusa, manca la distribuzione nulla di sopravvivenza-famiglia contro cui misurarlo</span></div></div>
+  <h3>In corso</h3>
+  <div class='gl'><div class='gl-h'><span class='gnm'>HF_OVERNIGHT_GAP_FADE</span><span class='b b-na'>in corso</span></div><div class='gd'>famiglia HF_OVERNIGHT_GAP · in preparazione — nessun trial consumato<br>Rimisura delle occorrenze sul frame congelato 16 anni in corso; anno peggiore completo come base di potenza.</div></div><div class='gl'><div class='gl-h'><span class='gnm'>HF_ROLL_PRESSURE_REVERSION</span><span class='b b-na'>in corso</span></div><div class='gd'>famiglia HF_ROLL_PRESSURE · bloccata — attende il FACT di pubblicazione OI (CME)<br>Slot di publication-lag OI fail-closed; il valore è una decisione umana non ancora presa (D-072).</div></div>
+</section><section id="verdetto" class="sec">
   <div class="verdict">
     <div class="vlabel">Prima ipotesi reale · Opening Range Breakout <span class="dref">D-116</span></div>
     <div class="vbig">respinta: <b>nessun vantaggio</b> entro le soglie stabilite</div>
@@ -277,7 +315,7 @@ footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--line)}
   proprio output prima di pubblicarlo.</div>
   <div class="gen">Generato da <span class="mono">scripts/build_dashboard.py</span> —
   legge solo file di stato committati, non esegue la pipeline, non tocca dati reali né
-  chiavi. Generazione 2026-09-15 18:57 UTC · HEAD 69b4c09.</div>
+  chiavi. Generazione 2026-09-15 21:18 UTC · HEAD 7a2598b.</div>
 </footer></main></div><script>
 (function(){
   var links=document.querySelectorAll('nav a[data-s]');
