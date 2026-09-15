@@ -3,269 +3,299 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ES-Quant-Desk — un sistema costruito per rifiutare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#0d1117; --panel:#161b22; --border:#30363d; --fg:#e6edf3;
-          --muted:#8b949e; --accent:#58a6ff; --ok:#3fb950; --warn:#d29922;
-          --bad:#f85149; --mono:'SFMono-Regular',Consolas,monospace; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg);
-          font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-          line-height:1.5; }
-  .wrap { max-width:940px; margin:0 auto; padding:24px 16px 80px; }
-  header h1 { font-size:1.6rem; margin:0 0 4px; }
-  header .sub { color:var(--muted); font-size:.95rem; }
-  .verdict { background:linear-gradient(180deg,#161b22,#0d1117); border:1px solid var(--border);
-              border-left:4px solid var(--bad); border-radius:10px; padding:18px 20px; margin:22px 0; }
-  .verdict .big { font-size:1.15rem; font-weight:650; }
-  .verdict .big b { color:var(--bad); }
-  .verdict p { margin:8px 0 0; color:var(--muted); font-size:.92rem; }
-  section { margin:34px 0; }
-  h2 { font-size:1.15rem; border-bottom:1px solid var(--border); padding-bottom:6px; }
-  .panel { background:var(--panel); border:1px solid var(--border); border-radius:10px;
-            padding:14px 16px; margin:12px 0; overflow-x:auto; }
-  table { width:100%; border-collapse:collapse; font-size:.88rem; }
-  th,td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--border);
-           vertical-align:top; }
-  th { color:var(--muted); font-weight:600; }
-  td.k { color:var(--fg); font-weight:600; width:30%; }
-  .mono { font-family:var(--mono); font-size:.83rem; word-break:break-all; }
-  table.pairs td.obs { color:var(--accent); }
-  table.pairs td.null b { color:var(--warn); }
-  table.pairs .nl { color:var(--muted); font-size:.78rem; }
-  table.pairs td.note { color:var(--muted); font-size:.8rem; width:34%; }
-  .gate { background:var(--panel); border:1px solid var(--border); border-radius:10px;
-           padding:12px 14px; margin:10px 0; }
-  .gate.unbuilt { border-left:4px solid var(--bad); opacity:.96; }
-  .gate.built { border-left:4px solid var(--border); }
-  .ghead { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-  .gidx { background:#21262d; color:var(--muted); border-radius:50%; width:22px; height:22px;
-           display:inline-flex; align-items:center; justify-content:center; font-size:.75rem; }
-  .gcode { font-weight:700; color:var(--accent); }
-  .gname { font-weight:600; }
-  .gbadge { margin-left:auto; font-size:.7rem; padding:2px 8px; border-radius:20px; }
-  .gbadge.built { background:#12331f; color:var(--ok); }
-  .gbadge.unbuilt { background:#3a1414; color:var(--bad); }
-  .gtrans { color:var(--muted); font-size:.8rem; font-family:var(--mono); margin:4px 0 8px; }
-  .grow { display:flex; gap:10px; font-size:.86rem; padding:2px 0; }
-  .glab { color:var(--muted); min-width:210px; }
-  .gval.mono { font-family:var(--mono); font-size:.8rem; }
-  .gnote { color:var(--muted); font-size:.82rem; margin-top:8px; padding-top:8px;
-            border-top:1px dashed var(--border); }
-  .defect { background:var(--panel); border:1px solid var(--border); border-radius:8px;
-             padding:10px 12px; margin:8px 0; }
-  .dsym { font-weight:600; color:var(--warn); font-size:.9rem; }
-  .dcause { color:var(--muted); font-size:.84rem; margin-top:3px; }
-  .kv { display:flex; flex-wrap:wrap; gap:8px; }
-  .chip { background:#21262d; border:1px solid var(--border); border-radius:20px;
-           padding:5px 12px; font-size:.82rem; }
-  .chip b { color:var(--ok); }
-  footer { color:var(--muted); font-size:.78rem; margin-top:40px; border-top:1px solid var(--border);
-            padding-top:14px; }
-  .seg { font-size:.78rem; color:var(--muted); background:#10151c; border:1px solid var(--border);
-          border-radius:8px; padding:10px 12px; }
-  svg { width:100%; height:auto; display:block; }
-</style></head>
-<body><div class="wrap">
-<header>
-  <h1>ES-Quant-Desk</h1>
-  <div class="sub">Una macchina di ricerca quantitativa costruita per <b>rifiutare</b>.
-  Prima ipotesi reale — ES_ALPHA_0001 (Opening Range Breakout) — <b>chiusa</b>.</div>
-</header>
+:root{
+  --bg:#08090B; --surface:#0F1114; --raised:#15181D; --line:#22262E; --hair:#181B21;
+  --ink:#ECEDEF; --dim:#858D99; --faint:#525A66;
+  --blue:#4D96F0; --amber:#E0A33E; --clay:#D4634A; --green:#4FB07C;
+  --nav:216px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Archivo',system-ui,-apple-system,sans-serif;
+  font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+b{font-weight:700}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
 
-<div class="verdict">
-  <div class="big">ES_ALPHA_0001 → terminale <b>NO_EDGE_DETECTED</b> (D-116)</div>
-  <p>Non «abbiamo smesso di guardare» (INSUFFICIENT_EVIDENCE), ma «abbiamo verificato che
-  non c'è, entro le soglie ratificate». Verdetto verificato contro la potenza
-  <b>EFFETTIVAMENTE ottenuta</b> (~620× il floor a priori), non quella stimata.
-  Scope: sottoinsieme reale 2021-2026, Train+Validation SOLO — <b>Holdout mai toccato</b>.
-  Zero candidati, nessun numero fabbricato: ai sensi del §8, un risultato riuscito.</p>
-</div>
+/* ── barra superiore ── */
+.top{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:14px 24px; background:rgba(8,9,11,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.brand{font-weight:800; font-size:17px; letter-spacing:-.01em; display:flex; align-items:baseline; gap:12px}
+.brand .tag{font-weight:500; font-size:12px; color:var(--dim); letter-spacing:0}
+.tmeta{display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+.pill{font-size:11px; font-weight:600; padding:4px 10px; border-radius:999px; border:1px solid var(--line)}
+.pill.stop{color:var(--clay); border-color:rgba(212,99,74,.4); background:rgba(212,99,74,.08)}
+.hd{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint)}
 
-<section>
-  <h2>Confronto con il rumore</h2>
-  <div class="panel"><svg viewBox="0 0 720 180" role="img" aria-label="Sharpe osservato contro soglie nominale e deflazionata" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="720" height="180" fill="#0d1117"/><line x1="60" y1="120" x2="660" y2="120" stroke="#30363d" stroke-width="1"/><line x1="260.0" y1="40" x2="260.0" y2="130" stroke="#484f58" stroke-dasharray="3 3" stroke-width="1"/><text x="260.0" y="150" fill="#8b949e" font-size="11" text-anchor="middle">0</text><rect x="112.4" y="70" width="204.9" height="30" fill="#1f6feb" opacity="0.85" rx="3"/><text x="214.9" y="62" fill="#58a6ff" font-size="11" text-anchor="middle">osservato −1.107 .. +0.430</text><line x1="460.0" y1="35" x2="460.0" y2="125" stroke="#d29922" stroke-width="2"/><text x="460.0" y="28" fill="#d29922" font-size="11" text-anchor="middle">nominale 1.5 (ODR-02a)</text><line x1="622.7" y1="35" x2="622.7" y2="125" stroke="#f85149" stroke-width="2"/><text x="622.7" y="28" fill="#f85149" font-size="11" text-anchor="middle">deflazionata ~2.72 (D-097)</text><text x="60" y="172" fill="#8b949e" font-size="11">Sharpe annualizzato — l'osservato non raggiunge nemmeno la soglia nominale (margine ~2.29)</text></svg></div>
-  <div class="panel"><svg viewBox="0 0 720 110" role="img" aria-label="Catena dei cancelli G1..G12" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="720" height="110" fill="#0d1117"/><rect x="20" y="30" width="78" height="46" rx="6" fill="#238636"/><text x="59" y="52" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">G1</text><text x="59" y="68" fill="#e6edf3" font-size="9" text-anchor="middle">PASS</text><line x1="98" y1="53" x2="114" y2="53" stroke="#30363d" stroke-width="2"/><rect x="114" y="30" width="78" height="46" rx="6" fill="#9e6a03"/><text x="153" y="52" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">G3</text><text x="153" y="68" fill="#e6edf3" font-size="9" text-anchor="middle">FAIL-CLOSED</text><line x1="192" y1="53" x2="208" y2="53" stroke="#30363d" stroke-width="2"/><rect x="208" y="30" width="78" height="46" rx="6" fill="#9e6a03"/><text x="247" y="52" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">G5</text><text x="247" y="68" fill="#e6edf3" font-size="9" text-anchor="middle">FAIL-CLOSED</text><line x1="286" y1="53" x2="302" y2="53" stroke="#30363d" stroke-width="2"/><rect x="302" y="30" width="78" height="46" rx="6" fill="#9e6a03"/><text x="341" y="52" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">G2/G4</text><text x="341" y="68" fill="#e6edf3" font-size="9" text-anchor="middle">FAIL-CLOSED</text><line x1="380" y1="53" x2="396" y2="53" stroke="#30363d" stroke-width="2"/><rect x="396" y="30" width="78" height="46" rx="6" fill="#9e6a03"/><text x="435" y="52" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">G6</text><text x="435" y="68" fill="#e6edf3" font-size="9" text-anchor="middle">FAIL-CLOSED</text><line x1="474" y1="53" x2="490" y2="53" stroke="#30363d" stroke-width="2"/><rect x="490" y="30" width="78" height="46" rx="6" fill="#8b1a1a"/><text x="529" y="52" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">G7</text><text x="529" y="68" fill="#e6edf3" font-size="9" text-anchor="middle">APERTO</text><line x1="568" y1="53" x2="584" y2="53" stroke="#30363d" stroke-width="2"/><rect x="584" y="30" width="78" height="46" rx="6" fill="#484f58"/><text x="623" y="52" fill="#fff" font-size="13" font-weight="600" text-anchor="middle">G8–12</text><text x="623" y="68" fill="#e6edf3" font-size="9" text-anchor="middle">N/A</text><text x="20" y="98" fill="#8b949e" font-size="11">Produzione onesta: PASS strutturale a G1, poi FAIL-CLOSED su ogni cancello con soglia umana non presa — zero candidati, nessun numero fabbricato.</text></svg></div>
-</section>
+/* ── layout ── */
+.shell{display:flex; align-items:flex-start; max-width:1200px; margin:0 auto}
+nav{
+  position:sticky; top:57px; align-self:flex-start;
+  width:var(--nav); flex:0 0 var(--nav); padding:22px 14px 40px;
+  border-right:1px solid var(--hair); height:calc(100vh - 57px); overflow:auto;
+}
+.grp{font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--faint); margin:18px 8px 8px}
+.grp:first-child{margin-top:0}
+.nl{display:flex; align-items:center; gap:9px; padding:7px 9px; margin:1px 0;
+  border-radius:7px; color:var(--dim); text-decoration:none; font-size:13.5px; cursor:pointer}
+.nl:hover{background:var(--raised); color:var(--ink)}
+.nl.on{background:var(--raised); color:var(--ink); font-weight:600}
+.dot{width:7px; height:7px; border-radius:2px; flex:0 0 7px}
+main{flex:1 1 auto; min-width:0; padding:26px 32px 80px; max-width:920px}
 
-<section>
-  <h2>Stato del sistema</h2>
-  <div class="kv">
-    <span class="chip">Test: <b>suite verde (solo warning di qualità dati)</b></span>
-    <span class="chip">mypy: <b>pulito — 88 file sorgente, 0 problemi</b></span>
-    <span class="chip">Decisioni: <b>D-116 (ultima registrazione nel log)</b></span>
-    <span class="chip">HEAD: <b>707b570</b></span>
+/* ── sezioni ── */
+.sec{display:none; animation:fade .18s ease}
+.sec.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.nsbanner{margin:0 0 18px; padding:10px 14px; border:1px solid var(--amber);
+  border-radius:8px; background:rgba(224,163,62,.08); color:var(--amber); font-size:13px}
+h2{font-size:22px; font-weight:700; letter-spacing:-.01em; margin:0 0 14px}
+.note{color:var(--dim); font-size:13.5px; margin:6px 0 16px}
+.note.dim{color:var(--faint)}
+.dim{color:var(--dim)}
+.dref{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--faint);
+  border:1px solid var(--line); border-radius:5px; padding:1px 6px; margin-left:6px; white-space:nowrap}
+
+/* ── verdetto ── */
+.verdict{border:1px solid var(--line); border-left:3px solid var(--clay);
+  border-radius:12px; background:var(--surface); padding:22px 24px; margin-bottom:18px}
+.vlabel{font-size:12.5px; color:var(--dim); margin-bottom:8px}
+.vbig{font-size:26px; font-weight:800; letter-spacing:-.02em; line-height:1.2; margin-bottom:10px}
+.verdict p{margin:0; color:var(--dim); font-size:14px; max-width:70ch}
+.insight{border:1px solid var(--line); border-radius:12px; background:var(--raised);
+  padding:18px 20px; font-size:14px; color:var(--ink); margin-top:18px}
+
+/* ── kpi ── */
+.kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:6px 0 4px}
+.card{border:1px solid var(--line); border-radius:12px; background:var(--surface); padding:18px 18px}
+.kn{font-size:30px; font-weight:800; letter-spacing:-.02em; line-height:1}
+.kn.ok{color:var(--green)}
+.kl{font-size:12.5px; color:var(--dim); margin-top:8px}
+
+/* ── grafico ── */
+.chart{border:1px solid var(--line); border-radius:12px; background:var(--surface);
+  padding:14px 12px 4px; margin-bottom:10px}
+.chart svg{display:block; width:100%; height:auto}
+.legend{display:flex; flex-wrap:wrap; gap:14px 18px; font-size:12.5px; color:var(--dim); margin:4px 2px 14px}
+.legend span{display:inline-flex; align-items:center; gap:7px}
+.legend i{width:14px; height:10px; border-radius:2px; display:inline-block}
+
+/* ── tabelle ── */
+.tbl{width:100%; border-collapse:collapse; font-size:13.5px; margin:6px 0 14px}
+.tbl th{text-align:left; font-weight:600; font-size:11.5px; letter-spacing:.04em;
+  text-transform:uppercase; color:var(--faint); padding:8px 12px; border-bottom:1px solid var(--line)}
+.tbl td{padding:9px 12px; border-bottom:1px solid var(--hair); vertical-align:middle}
+.tbl td.k{color:var(--dim)}
+.tbl td.c{text-align:center; font-family:'IBM Plex Mono',monospace; color:var(--dim)}
+.tbl td.obs{font-family:'IBM Plex Mono',monospace; color:var(--blue)}
+.tbl td.nl{font-family:'IBM Plex Mono',monospace; color:var(--dim)}
+.barcell{width:42%}
+.bar{display:inline-block; height:9px; border-radius:3px; background:var(--blue);
+  vertical-align:middle; margin-right:8px; min-width:3px}
+.bl{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--dim)}
+.neg{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--clay)}
+
+/* ── liste cancelli / fasi ── */
+.gl{border:1px solid var(--line); border-radius:10px; background:var(--surface);
+  padding:14px 16px; margin:10px 0}
+.gl-h{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.gi{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--faint);
+  border:1px solid var(--line); border-radius:6px; padding:2px 7px}
+.gc{font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--dim)}
+.gnm{font-weight:600; flex:1 1 auto}
+.gd{color:var(--dim); font-size:13px; margin-top:8px}
+.pair{display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:8px; font-size:12.5px}
+.pk{color:var(--faint)}
+.po{font-family:'IBM Plex Mono',monospace; color:var(--blue)}
+.pn{font-family:'IBM Plex Mono',monospace; color:var(--dim)}
+
+/* ── badge ── */
+.b{font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; white-space:nowrap}
+.b-pass{color:var(--green); background:rgba(79,176,124,.1); border:1px solid rgba(79,176,124,.35)}
+.b-inc{color:var(--amber); background:rgba(224,163,62,.1); border:1px solid rgba(224,163,62,.35)}
+.b-fail{color:var(--clay); background:rgba(212,99,74,.1); border:1px solid rgba(212,99,74,.35)}
+.b-blk{color:#C77DDB; background:rgba(199,125,219,.1); border:1px solid rgba(199,125,219,.35)}
+.b-na{color:var(--faint); background:rgba(82,90,102,.1); border:1px solid var(--line)}
+
+/* ── difetti ── */
+.tbl td.sym{font-weight:600; width:38%}
+.tbl td.cause{color:var(--dim)}
+
+/* ── cosa resta aperto ── */
+.oigrid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+.oi{border:1px solid var(--line); border-radius:10px; background:var(--surface); padding:14px 16px}
+.oik{font-weight:600; font-size:13px; margin-bottom:5px}
+.oiv{color:var(--dim); font-size:13px}
+
+/* ── footer ── */
+footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--line)}
+.segfoot{font-size:12.5px; color:var(--dim); max-width:80ch; margin-bottom:14px}
+.gen{font-size:11.5px; color:var(--faint)}
+
+@media(max-width:820px){
+  .shell{display:block}
+  nav{position:static; width:auto; height:auto; border-right:0;
+    border-bottom:1px solid var(--hair); display:flex; flex-wrap:wrap; gap:4px}
+  .grp{width:100%; margin:8px 8px 4px}
+  main{padding:20px 18px 60px; max-width:none}
+  .kpi{grid-template-columns:1fr}
+  .oigrid{grid-template-columns:1fr}
+}
+</style>
+</head><body><div class="top"><div class="brand">ES-Quant-Desk<span class="tag">un sistema costruito per rifiutare</span></div><div class="tmeta"><span class="pill stop">Pipeline ferma al cancello 7</span><span class="hd">HEAD 5efa154 · 2026-09-15 00:09 UTC</span></div></div><div class="shell"><nav aria-label="Sezioni"><div class="grp">Ipotesi</div><a class="nl on" data-s="verdetto" href="#verdetto"><span class="dot" style="background:#D4634A"></span>Verdetto</a><a class="nl" data-s="rumore" href="#rumore"><span class="dot" style="background:#4D96F0"></span>Osservato vs rumore</a><a class="nl" data-s="cancelli" href="#cancelli"><span class="dot" style="background:#E0A33E"></span>I dodici cancelli</a><a class="nl" data-s="config" href="#config"><span class="dot" style="background:#858D99"></span>Le configurazioni</a><div class="grp">Sistema</div><a class="nl" data-s="dati" href="#dati"><span class="dot" style="background:#4FB07C"></span>I dati</a><a class="nl" data-s="salute" href="#salute"><span class="dot" style="background:#4FB07C"></span>Salute del sistema</a><a class="nl" data-s="difetti" href="#difetti"><span class="dot" style="background:#E0A33E"></span>Difetti intercettati</a><a class="nl" data-s="aperto" href="#aperto"><span class="dot" style="background:#D4634A"></span>Cosa resta aperto</a></nav><main><noscript><style>.sec{display:block !important}nav{display:none}main{max-width:940px;margin:0 auto}</style><div class="nsbanner">JavaScript disattivato: tutte le sezioni sono mostrate in sequenza.</div></noscript><section id="verdetto" class="sec on">
+  <div class="verdict">
+    <div class="vlabel">Prima ipotesi reale · Opening Range Breakout <span class="dref">D-116</span></div>
+    <div class="vbig">respinta: <b>nessun vantaggio</b> entro le soglie stabilite</div>
+    <p>Non «abbiamo smesso di guardare»: abbiamo verificato che il vantaggio non c'è,
+    entro le soglie decise prima di guardare. Ambito: sottoinsieme reale 2021-2026,
+    solo dati di allenamento e validazione — l'<b>holdout non è mai stato toccato</b>.
+    Zero candidati promossi, e nessun numero inventato per farne passare uno: secondo la
+    regola di governo, questo è un esito <b>riuscito</b>.</p>
   </div>
-  <p class="sub" style="color:var(--muted);font-size:.85rem;margin-top:10px">
-    Fase 1 (perimetro zero-cost) verde su fixture sintetiche; Fase 3 (pipeline G1–G6)
-    eseguita sul sottoinsieme reale. Il macchinario <b>fallisce chiuso</b> ovunque una
-    decisione umana (ODR) manchi: solleva e blocca invece di defaultare.</p>
-</section>
-
-<section>
-  <h2>Il dataset</h2>
-  <div class="panel"><table><tbody><tr><td class='k'>research frame rows</td><td class='mono'>135,217  (rebuilt=False)</td></tr><tr><td class='k'>dataset_hash</td><td class='mono'>6196e749d86419437938cc7013698504482a800b440d5a4f9143fe3a19d8b165</td></tr><tr><td class='k'>Train+Validation cutoff (70° pct-day)</td><td class='mono'>2025-03-05  (rows: 95,333)</td></tr><tr><td class='k'>Train+Validation span</td><td class='mono'>2021-09-06 → 2025-03-05  (1276 giorni di calendario)</td></tr><tr><td class='k'>sessions (instrument×day)</td><td class='mono'>1,242</td></tr><tr><td class='k'>OHLCV rows (sorgente)</td><td class='mono'>2,826,568  (2021-09-05 .. 2026-09-03)</td></tr><tr><td class='k'>OI rows (scoped) / degraded days</td><td class='mono'>16,103  /  32</td></tr><tr><td class='k'>DIAGNOSTIC_RUN (Trial Ledger)</td><td class='mono'>count()=12  n_trials()=1  (12 config = UN trial, D-053)</td></tr></tbody></table></div>
-</section>
-
-<section>
+  <div class="kpi">
+    <div class="card"><div class="kn">12</div><div class="kl">configurazioni provate<br>
+      <span class="dim">contate come 1 sola prova della famiglia</span></div></div>
+    <div class="card"><div class="kn">0</div><div class="kl">candidati promossi<br>
+      <span class="dim">nessun vantaggio distinguibile dal caso</span></div></div>
+    <div class="card"><div class="kn">7 di 12</div><div class="kl">cancelli costruiti<br>
+      <span class="dim">il settimo è aperto e blocca tutto ciò che segue</span></div></div>
+  </div>
+  <div class="insight"><b>In sintesi.</b> Le dodici varianti sono una singola scommessa
+  declinata in dodici modi, non dodici scommesse indipendenti. Il vantaggio misurato è
+  indistinguibile dal rumore, e sotto entrambe le soglie richieste. Dove i costi o le
+  soglie erano decisioni umane non ancora prese, il sistema si è <b>bloccato</b> invece di
+  inventare un valore. Il fatto principale non è «quante sono passate»: è che il sistema
+  si è rifiutato di emettere un verdetto su parametri non decisi.</div>
+</section><section id="rumore" class="sec">
+  <h2>L'osservato contro il rumore</h2>
+  <div class="chart"><svg viewBox="0 0 760 190" role="img" aria-label="Sharpe osservato dentro la banda del rumore, sotto le due soglie" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="760" height="190" fill="#0F1114"/><rect x="195.0" y="46" width="333.8" height="66" fill="#1C2129" rx="2"/><line x1="360.2" y1="40" x2="360.2" y2="118" stroke="#525A66" stroke-dasharray="2 3" stroke-width="1"/><rect x="244.9" y="64" width="158.8" height="30" fill="#4D96F0" rx="2"/><line x1="514.3" y1="34" x2="514.3" y2="124" stroke="#E0A33E" stroke-width="2"/><text x="514.3" y="26" fill="#E0A33E" font-size="11" text-anchor="middle">soglia +1,50</text><line x1="640.4" y1="34" x2="640.4" y2="124" stroke="#D4634A" stroke-width="2"/><text x="640.4" y="26" fill="#D4634A" font-size="11" text-anchor="middle">soglia +2,72</text><line x1="132" y1="124" x2="690" y2="124" stroke="#22262E" stroke-width="1"/><text x="256.0" y="140" fill="#525A66" font-size="10" text-anchor="middle">−1</text><text x="359.3" y="140" fill="#525A66" font-size="10" text-anchor="middle">0</text><text x="462.7" y="140" fill="#525A66" font-size="10" text-anchor="middle">1</text><text x="566.0" y="140" fill="#525A66" font-size="10" text-anchor="middle">2</text><text x="669.3" y="140" fill="#525A66" font-size="10" text-anchor="middle">3</text><text x="324.4" y="58" fill="#4D96F0" font-size="11" text-anchor="middle">osservato −1,107 → +0,430</text><text x="361.9" y="134" fill="#858D99" font-size="11" text-anchor="middle">rumore −1,59 → +1,64 · 90% dei casi</text><text x="132" y="178" fill="#858D99" font-size="11">La barra blu (ciò che abbiamo osservato) sta INTERAMENTE dentro la banda grigia (il rumore) e non sfiora nessuna delle due soglie.</text></svg></div>
+  <div class="legend">
+    <span><i style="background:#4D96F0"></i>ciò che abbiamo osservato</span>
+    <span><i style="background:#1C2129;border:1px solid #22262E"></i>il rumore (90% dei casi)</span>
+    <span><i style="background:#E0A33E"></i>soglia minima</span>
+    <span><i style="background:#D4634A"></i>soglia dopo correzione</span>
+  </div>
+  <p class="note">Il rumore è 2000 riordini casuali della sequenza di trade (più prove per la riga «falsi positivi»). Se l&#x27;osservato cade DENTRO la banda del rumore, non è distinguibile dal caso: è esattamente ciò che è successo.</p>
+  <table class="tbl">
+    <thead><tr><th>metrica</th><th>osservato</th><th>media del rumore</th>
+      <th>fascia 90% del rumore</th></tr></thead>
+    <tbody><tr><td class='k'>Sharpe</td><td class='obs'>−1,107 → +0,430</td><td>+0,008</td><td class='nl'>−1,59 → +1,64</td></tr><tr><td class='k'>Drawdown massimo</td><td class='obs'>−0,547</td><td>−0,547</td><td class='nl'>−0,98 → −0,26</td></tr><tr><td class='k'>Percentuale di vincite</td><td class='obs'>0,500</td><td>0,500</td><td class='nl'>0,482 → 0,518</td></tr><tr><td class='k'>Falsi positivi (6000 prove)</td><td class='obs'>0,0000</td><td>0,0000</td><td class='nl'>CI 95%: 0 → 0,0019</td></tr></tbody>
+  </table>
+  <p class="note dim">La «soglia dopo correzione» (≈2,72) è più alta della soglia minima
+  (1,50) perché tiene conto di quante varianti abbiamo provato: più tentativi, più alta
+  l'asticella per non farsi ingannare dal caso. <span class="dref">D-097</span></p>
+</section><section id="cancelli" class="sec">
   <h2>I dodici cancelli</h2>
-  <p class="sub" style="color:var(--muted);font-size:.85rem">
-    Costruiti e attraversati G1–G6 (in produzione onesta: FAIL-CLOSED da G3 in poi).
-    Il cancello 7 (Red Team) è <b>aperto e bloccante</b> — irraggiungibile finché la
-    batteria avversariale invalidante non è cablata (OQ-16, D-045). I cancelli 8–12
-    (holdout, MES, live) sono a valle e non raggiungibili.</p>
-  
-        <div class="gate built">
-          <div class="ghead"><span class="gidx">1</span>
-            <span class="gcode">G1</span>
-            <span class="gname">SCREENING</span>
-            <span class="gbadge built">COSTRUITO</span></div>
-          <div class="gtrans">PRE_REGISTERED → SCREENED</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">pre-statistico (nessuna soglia umana richiesta)</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">tally {PASS: 12, FAIL: 0, INCONCLUSIVE: 0}</span></div>
-          
-          <div class="gnote">Frazione SESSION_CLOSE riportata come diagnostico proprio 0.0106–0.4356, mai ripiegata nel verdetto. G1 è pre-statistico: nessuna null qui — il criterio è la dimensione del campione, non un edge.</div>
-        </div>
-        <div class="gate built">
-          <div class="ghead"><span class="gidx">2</span>
-            <span class="gcode">G2/G4</span>
-            <span class="gname">STATISTICAL SIGNIFICANCE</span>
-            <span class="gbadge built">COSTRUITO</span></div>
-          <div class="gtrans">WALK_FORWARD → MULTIPLICITY_ADJUSTED</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">FAIL-CLOSED — ConfigurationRequired (7 chiavi statistics.* + costo UNPOPULATED)</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">tally {INCONCLUSIVE: 12}</span></div>
-          <table class='pairs'><thead><tr><th>metrica</th><th>osservato</th><th>sotto la null</th><th>nota</th></tr></thead><tbody><tr><td class='k'>Sharpe annualizzato per-config</td><td class='obs'>osservato −1.107 .. +0.430 (tutti sotto)</td><td class='null'><span class='nl'>soglia nominale (ODR-02a) / operativa deflazionata (D-097)</span><br><b>1.5  /  ~2.72</b></td><td class='note'>La differenza 1.5 → 2.72 È la correzione per multiple-testing. DSR-ok=False e boot-ok=False per tutte 12.</td></tr><tr><td class='k'>α family-wise / per-gate</td><td class='obs'>usato per-gate 0.0025</td><td class='null'><span class='nl'>α nominale (ODR-02b) / deflazionato per-gate (Bonferroni)</span><br><b>0.05  /  0.05÷20 = 0.0025</b></td><td class='note'></td></tr><tr><td class='k'>PBO a livello di SWEEP (D-114)</td><td class='obs'>osservato 0.1667</td><td class='null'><span class='nl'>soglia veicolo</span><br><b>0.50</b></td><td class='note'>Calcolato UNA volta sulla matrice 12-config: misura l&#x27;affidabilità della SELEZIONE tra le config, NON l&#x27;edge di una singola config.</td></tr></tbody></table>
-          
-        </div>
-        <div class="gate built">
-          <div class="ghead"><span class="gidx">3</span>
-            <span class="gcode">G3</span>
-            <span class="gname">COST MARGIN (§19.3, costo = LIMITE SUPERIORE)</span>
-            <span class="gbadge built">COSTRUITO</span></div>
-          <div class="gtrans">SCREENED → OOS_TESTED</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">FAIL-CLOSED — ConfigurationRequired: costs.broker_commission_per_rt</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">tally {PASS: 0, INCONCLUSIVE: 12, FAIL: 0}</span></div>
-          <table class='pairs'><thead><tr><th>metrica</th><th>osservato</th><th>sotto la null</th><th>nota</th></tr></thead><tbody><tr><td class='k'>Margine di break-even (edge lordo/rt ÷ costo/rt)</td><td class='obs'>osservato −0.42x .. 1.99x (tutti sotto)</td><td class='null'><span class='nl'>soglia di fragilità (D-062)</span><br><b>2.0x</b></td><td class='note'>FRAGILE su un costo upper-bound → INCONCLUSIVE, MAI un FAIL: su un limite superiore il negativo non è prova d&#x27;assenza.</td></tr></tbody></table>
-          
-        </div>
-        <div class="gate built">
-          <div class="ghead"><span class="gidx">4</span>
-            <span class="gcode">G4</span>
-            <span class="gname">(unito a G2 — MULTIPLICITY)</span>
-            <span class="gbadge built">COSTRUITO</span></div>
-          <div class="gtrans">vedi G2/G4</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">vedi G2/G4</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">vedi G2/G4</span></div>
-          
-          <div class="gnote">G4 (aggiustamento per molteplicità) è eseguito insieme a G2: la PBO di sweep e la deflazione DSR sono la componente di molteplicità.</div>
-        </div>
-        <div class="gate built">
-          <div class="ghead"><span class="gidx">5</span>
-            <span class="gcode">G5</span>
-            <span class="gname">OOS WALK-FORWARD (Sharpe PER-TRADE per finestra, D-113)</span>
-            <span class="gbadge built">COSTRUITO</span></div>
-          <div class="gtrans">OOS_TESTED → WALK_FORWARD</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">FAIL-CLOSED — ConfigurationRequired: costs.broker_commission_per_rt</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">tally {PASS: 0, INCONCLUSIVE: 0, FAIL: 12}</span></div>
-          <table class='pairs'><thead><tr><th>metrica</th><th>osservato</th><th>sotto la null</th><th>nota</th></tr></thead><tbody><tr><td class='k'>Sharpe per-trade mediano per-config</td><td class='obs'>osservato −0.060 .. +0.0011</td><td class='null'><span class='nl'>unità diversa dalla 2.72 annua (D-113); frazione finestre positive vs soglia veicolo</span><br><b>0.0 .. 0.333  vs  0.6</b></td><td class='note'>I 12 FAIL dipendono INTERAMENTE dalla geometria corta del veicolo (180/90/90); la 1095d ratificata resta UNPOPULATED — non è un verdetto sulla strategia.</td></tr></tbody></table>
-          
-        </div>
-        <div class="gate built">
-          <div class="ghead"><span class="gidx">6</span>
-            <span class="gcode">G6</span>
-            <span class="gname">ROBUSTNESS (§7 Monte Carlo, tail dependency; NESSUN FAIL, D-085)</span>
-            <span class="gbadge built">COSTRUITO</span></div>
-          <div class="gtrans">MULTIPLICITY_ADJUSTED → ROBUSTNESS_TESTED</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">FAIL-CLOSED — ConfigurationRequired: robustness.tail_dependency_threshold (5 chiavi)</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">tally {PASS: 0, INCONCLUSIVE: 12, FAIL: 0}</span></div>
-          
-          <div class="gnote">Attacco TIER1_TIER2_DIVERGENCE eseguito come NOT_AVAILABLE su tutte 12 (div_exec=False): Tier-2 (NautilusTrader / Block F / Phase 8) NON è costruito (D-045). Batteria incompleta → ogni config INCONCLUSIVE, MAI un PASS fabbricato. G6 non ha ramo FAIL (D-085).</div>
-        </div>
-        <div class="gate unbuilt">
-          <div class="ghead"><span class="gidx">7</span>
-            <span class="gcode">G7</span>
-            <span class="gname">RED TEAM (batteria avversariale invalidante)</span>
-            <span class="gbadge unbuilt">NON RAGGIUNGIBILE</span></div>
-          <div class="gtrans">ROBUSTNESS_TESTED → RED_TEAM_PASSED</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">IRRAGGIUNGIBILE — cancello APERTO e BLOCCANTE (OQ-16 🔴)</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">non eseguibile: nessun controllo red-team sostanziale cablato</span></div>
-          
-          <div class="gnote">Verificato nel codice (alpha_registry.py:276): la transizione è attraversabile solo dichiarando gate(PASS), senza alcun attacco invalidante (temporale/regime/sessione/Tier1-Tier2/serie-nulle). Vincolo: NESSUNA alpha può raggiungere HOLDOUT_EVALUATED finché il gap non è colmato (Fase 7 dedicata). Un cancello aperto è peggio di uno mancante.</div>
-        </div>
-        <div class="gate unbuilt">
-          <div class="ghead"><span class="gidx">8</span>
-            <span class="gcode">G8–G12</span>
-            <span class="gname">HOLDOUT ed ESECUZIONE (holdout eval, MES, live)</span>
-            <span class="gbadge unbuilt">NON RAGGIUNGIBILE</span></div>
-          <div class="gtrans">RED_TEAM_PASSED → HOLDOUT_EVALUATED → …</div>
-          <div class="grow"><span class="glab">Produzione onesta (PASS A)</span>
-            <span class="gval">IRRAGGIUNGIBILE — a valle di G7 (aperto) e con ODR di governance non prese</span></div>
-          <div class="grow"><span class="glab">Veicolo throwaway (PASS B)</span>
-            <span class="gval mono">non eseguibile</span></div>
-          
-          <div class="gnote">ODR-04 (metriche holdout), ODR-05 (MES/divergenza), ODR-07 (chi esegue l&#x27;holdout), ODR-12 (broker) tutte aperte. Holdout MAI toccato in nessun cancello.</div>
-        </div>
-</section>
-
-<section>
-  <h2>Prima ipotesi — ORB: dove muore ciascuna delle 12 config</h2>
-  <div class="panel">
-    <div><b>Universo:</b> <span class="mono">{15m, 30m} × {OPPOSITE_EXTREME, MIDPOINT} × {1x, 2x, 3x}  (bar_minutes=5)</span></div>
-    <div style="margin-top:6px"><b>Trade:</b> 1231 (15m) / 1226 (30m) trade per config sul frame T+V</div>
-    <p style="color:var(--muted);font-size:.85rem;margin-top:10px">
-      Le 12 config <b>non sono 12 trial</b>: sono UN trial da 12 (count()=12, n_trials()=1).
-      Sul veicolo statistico l'edge osservato è <b>indistinguibile dal rumore</b> entro le
-      soglie ratificate (Sharpe −1.107 .. +0.430, tutti sotto nominale 1.5 e deflazionata
-      2.72; DSR e CI bootstrap non significativi). In produzione onesta muoiono per
-      FAIL-CLOSED (costo/soglie UNPOPULATED) prima di qualunque verdetto d'edge.</p>
+  <p class="note">Ogni ipotesi attraversa una catena di controlli. I primi sei sono
+  costruiti e sono stati eseguiti; il settimo (la «squadra rossa» che cerca attivamente di
+  invalidare l'ipotesi) è <b>aperto</b>: finché non è cablato, nulla può proseguire verso
+  l'holdout. Gli ultimi sono a valle e non raggiungibili. <span class="dref">D-045 · OQ-16</span></p>
+  <div class='gl'><div class='gl-h'><span class='gi'>1</span><span class='gc'>G1</span><span class='gnm'>SCREENING</span><span class='b b-pass'>passato</span></div><div class='gd'>Frazione SESSION_CLOSE riportata come diagnostico proprio 0.0106–0.4356, mai ripiegata nel verdetto. G1 è pre-statistico: nessuna null qui — il criterio è la dimensione del campione, non un edge.</div></div><div class='gl'><div class='gl-h'><span class='gi'>2</span><span class='gc'>G2/G4</span><span class='gnm'>STATISTICAL SIGNIFICANCE</span><span class='b b-inc'>non conclusivo</span></div><div class='gd'>FAIL-CLOSED — ConfigurationRequired (7 chiavi statistics.* + costo UNPOPULATED)</div><div class='pair'><span class='pk'>Sharpe annualizzato per-config</span><span class='po'>osservato osservato −1.107 .. +0.430 (tutti sotto)</span><span class='pn'>riferimento 1.5  /  ~2.72</span></div><div class='pair'><span class='pk'>α family-wise / per-gate</span><span class='po'>osservato usato per-gate 0.0025</span><span class='pn'>riferimento 0.05  /  0.05÷20 = 0.0025</span></div><div class='pair'><span class='pk'>PBO a livello di SWEEP (D-114)</span><span class='po'>osservato osservato 0.1667</span><span class='pn'>riferimento 0.50</span></div></div><div class='gl'><div class='gl-h'><span class='gi'>3</span><span class='gc'>G3</span><span class='gnm'>COST MARGIN (§19.3, costo = LIMITE SUPERIORE)</span><span class='b b-inc'>non conclusivo</span></div><div class='gd'>FAIL-CLOSED — ConfigurationRequired: costs.broker_commission_per_rt</div><div class='pair'><span class='pk'>Margine di break-even (edge lordo/rt ÷ costo/rt)</span><span class='po'>osservato osservato −0.42x .. 1.99x (tutti sotto)</span><span class='pn'>riferimento 2.0x</span></div></div><div class='gl'><div class='gl-h'><span class='gi'>4</span><span class='gc'>G4</span><span class='gnm'>(unito a G2 — MULTIPLICITY)</span><span class='b b-inc'>non conclusivo</span></div><div class='gd'>G4 (aggiustamento per molteplicità) è eseguito insieme a G2: la PBO di sweep e la deflazione DSR sono la componente di molteplicità.</div></div><div class='gl'><div class='gl-h'><span class='gi'>5</span><span class='gc'>G5</span><span class='gnm'>OOS WALK-FORWARD (Sharpe PER-TRADE per finestra, D-113)</span><span class='b b-fail'>respinto</span></div><div class='gd'>FAIL-CLOSED — ConfigurationRequired: costs.broker_commission_per_rt</div><div class='pair'><span class='pk'>Sharpe per-trade mediano per-config</span><span class='po'>osservato osservato −0.060 .. +0.0011</span><span class='pn'>riferimento 0.0 .. 0.333  vs  0.6</span></div></div><div class='gl'><div class='gl-h'><span class='gi'>6</span><span class='gc'>G6</span><span class='gnm'>ROBUSTNESS (§7 Monte Carlo, tail dependency; NESSUN FAIL, D-085)</span><span class='b b-inc'>non conclusivo</span></div><div class='gd'>Attacco TIER1_TIER2_DIVERGENCE eseguito come NOT_AVAILABLE su tutte 12 (div_exec=False): Tier-2 (NautilusTrader / Block F / Phase 8) NON è costruito (D-045). Batteria incompleta → ogni config INCONCLUSIVE, MAI un PASS fabbricato. G6 non ha ramo FAIL (D-085).</div></div><div class='gl'><div class='gl-h'><span class='gi'>7</span><span class='gc'>G7</span><span class='gnm'>RED TEAM (batteria avversariale invalidante)</span><span class='b b-blk'>bloccato — aperto</span></div><div class='gd'>Verificato nel codice (alpha_registry.py:276): la transizione è attraversabile solo dichiarando gate(PASS), senza alcun attacco invalidante (temporale/regime/sessione/Tier1-Tier2/serie-nulle). Vincolo: NESSUNA alpha può raggiungere HOLDOUT_EVALUATED finché il gap non è colmato (Fase 7 dedicata). Un cancello aperto è peggio di uno mancante.</div></div><div class='gl'><div class='gl-h'><span class='gi'>8</span><span class='gc'>G8–G12</span><span class='gnm'>HOLDOUT ed ESECUZIONE (holdout eval, MES, live)</span><span class='b b-na'>non raggiungibile</span></div><div class='gd'>ODR-04 (metriche holdout), ODR-05 (MES/divergenza), ODR-07 (chi esegue l&#x27;holdout), ODR-12 (broker) tutte aperte. Holdout MAI toccato in nessun cancello.</div></div>
+</section><section id="config" class="sec">
+  <h2>Le dodici configurazioni</h2>
+  <p class="note">La stessa idea — «entra quando il prezzo rompe il range di apertura» —
+  declinata su due durate del range, due modi di prendere profitto e tre livelli di
+  ampiezza. La colonna «profitto lordo» è relativa alla migliore; le varianti in perdita o
+  vicine allo zero mostrano un'etichetta al posto della barra.</p>
+  <table class="tbl">
+    <thead><tr><th>range</th><th>uscita</th><th>ampiezza</th><th>trade</th>
+      <th>chiuse a fine sessione</th><th>profitto lordo (relativo)</th></tr></thead>
+    <tbody><tr><td>15m</td><td>estremo opposto</td><td class='c'>1×</td><td class='c'>1231</td><td class='c'>12,3%</td><td class='barcell'><span class='bar' style='width:30%'></span><span class='bl'>30%</span></td></tr><tr><td>15m</td><td>estremo opposto</td><td class='c'>2×</td><td class='c'>1231</td><td class='c'>18,7%</td><td class='barcell'><span class='bar' style='width:75%'></span><span class='bl'>75%</span></td></tr><tr><td>15m</td><td>estremo opposto</td><td class='c'>3×</td><td class='c'>1231</td><td class='c'>24,1%</td><td class='barcell'><span class='bar' style='width:100%'></span><span class='bl'>100% · migliore lordo</span></td></tr><tr><td>15m</td><td>punto medio</td><td class='c'>1×</td><td class='c'>1231</td><td class='c'>31,9%</td><td class='barcell'><span class='neg'>negativo</span></td></tr><tr><td>15m</td><td>punto medio</td><td class='c'>2×</td><td class='c'>1231</td><td class='c'>38,4%</td><td class='barcell'><span class='bar' style='width:33%'></span><span class='bl'>33%</span></td></tr><tr><td>15m</td><td>punto medio</td><td class='c'>3×</td><td class='c'>1231</td><td class='c'>43,6%</td><td class='barcell'><span class='bar' style='width:35%'></span><span class='bl'>35%</span></td></tr><tr><td>30m</td><td>estremo opposto</td><td class='c'>1×</td><td class='c'>1226</td><td class='c'>1,06%</td><td class='barcell'><span class='bar' style='width:6%'></span><span class='bl'>6%</span></td></tr><tr><td>30m</td><td>estremo opposto</td><td class='c'>2×</td><td class='c'>1226</td><td class='c'>6,4%</td><td class='barcell'><span class='bar' style='width:61%'></span><span class='bl'>61%</span></td></tr><tr><td>30m</td><td>estremo opposto</td><td class='c'>3×</td><td class='c'>1226</td><td class='c'>9,8%</td><td class='barcell'><span class='bar' style='width:86%'></span><span class='bl'>86%</span></td></tr><tr><td>30m</td><td>punto medio</td><td class='c'>1×</td><td class='c'>1226</td><td class='c'>14,2%</td><td class='barcell'><span class='neg'>negativo</span></td></tr><tr><td>30m</td><td>punto medio</td><td class='c'>2×</td><td class='c'>1226</td><td class='c'>22,7%</td><td class='barcell'><span class='neg'>≈ zero</span></td></tr><tr><td>30m</td><td>punto medio</td><td class='c'>3×</td><td class='c'>1226</td><td class='c'>28,9%</td><td class='barcell'><span class='bar' style='width:23%'></span><span class='bl'>23%</span></td></tr></tbody>
+  </table>
+  <p class="note dim">Anche la migliore, al lordo, non supera i costi e le soglie: nessuna
+  arriva a un vantaggio reale. Le dodici insieme valgono <b>una</b> sola prova della
+  famiglia, non dodici. <span class="dref">D-053</span></p>
+</section><section id="dati" class="sec">
+  <h2>I dati</h2>
+  <div class="kpi">
+    <div class="card"><div class="kn">135.217</div><div class="kl">righe di ricerca<br>
+      <span class="dim">frame congelato T+V</span></div></div>
+    <div class="card"><div class="kn">1.242</div><div class="kl">sessioni<br>
+      <span class="dim">strumento × giorno</span></div></div>
+    <div class="card"><div class="kn">2,8 mln</div><div class="kl">barre OHLCV<br>
+      <span class="dim">2021-09 → 2026-09</span></div></div>
   </div>
-</section>
-
-<section>
-  <h2>Trial Ledger</h2>
-  <div class="kv">
-    <span class="chip">Famiglia: <b>HF_ORB_OPENING_RANGE</b></span>
-    <span class="chip">Consumati: <b>12</b></span>
-    <span class="chip">Residui: <b>8</b> di 20</span>
-    <span class="chip">Etichetta: <b>DIAGNOSTIC_RUN</b></span>
+  <table class="tbl">
+    <tbody>
+      <tr><td class="k">Periodo (allenamento + validazione)</td>
+        <td>2021-09-06 → 2025-03-05 · 1276 giorni</td></tr>
+      <tr><td class="k">Taglio train/validation (70° percentile)</td>
+        <td>2025-03-05 · 95.333 righe</td></tr>
+      <tr><td class="k">Open Interest (giorni degradati)</td>
+        <td>16.103 righe · 32 giorni</td></tr>
+      <tr><td class="k">Impronta del dataset</td>
+        <td class="mono">6196e749d864…3a19d8b165</td></tr>
+    </tbody>
+  </table>
+  <p class="note dim">L'impronta è mostrata troncata: identifica il dataset senza esporre
+  l'intero valore. Nessun dato reale di mercato attraversa questa pagina.</p>
+</section><section id="salute" class="sec">
+  <h2>Salute del sistema</h2>
+  <div class="kpi">
+    <div class="card"><div class="kn ok">suite verde (solo warning di qualità dati)</div>
+      <div class="kl">test automatici</div></div>
+    <div class="card"><div class="kn ok">pulito — 88 file sorgente, 0 problemi</div>
+      <div class="kl">controllo dei tipi</div></div>
+    <div class="card"><div class="kn">D-116 (ultima registrazione nel log)</div>
+      <div class="kl">ultima decisione registrata</div></div>
   </div>
-  <p class="sub" style="color:var(--muted);font-size:.85rem;margin-top:10px">12 config = UN trial grid-sized (count()=12, n_trials()=1). NON il denominatore di ricerca: il run 16y registrerà il PROPRIO trial, contato separatamente (D-112). Sommare i due gonfierebbe DSR/PBO a valle.</p>
-</section>
-
-<section>
-  <h2>Sette difetti intercettati (sintomo + causa)</h2>
-  <div class='defect'><div class='dsym'>P4-01 — `.gitignore` escludeva il codice sorgente</div><div class='dcause'>la regola non ancorata `data/` combaciava col sotto-package `src/es_quant/data/`: 3 componenti fuori dal version control. Verde su disco ma non da clone. Fix: regole ancorate alla root.</div></div><div class='defect'><div class='dsym'>RILIEVO-1 — V-2 confrontava regole DIVERSE</div><div class='dcause'>il test confrontava `X.v.0` (volume) vs `X.n.0` (OI) — normale rollino in date diverse. §6.2 V-2 riguarda la STESSA regola a offset consecutivi. Corretti motore e test.</div></div><div class='defect'><div class='dsym'>RILIEVO-2 — pandas era abitudine, non scelta (D-014)</div><div class='dcause'>i default `label/closed` di `resample` introducono lookahead SILENZIOSO. Riscritti in Polars (Timeframe, Quality, ContinuousView): Polars obbliga a dichiararlo.</div></div><div class='defect'><div class='dsym'>RILIEVO-3 — verde-su-disco ≠ verde-da-clone</div><div class='dcause'>un file non versionato passa in locale ma non da clone pulito. Contromisura: `test_repo_reconstruction.py` ricostruisce da `git archive HEAD` ed esegue la suite.</div></div><div class='defect'><div class='dsym'>VERIFICA-4 — #9 era runtime, non by-type</div><div class='dcause'>`isinstance`/`hasattr` provano solo la tesi debole. La garanzia &#x27;non-tradable per tipo&#x27; è reale solo se un type checker la applica: aggiunto `test_type_safety.py` (mypy --strict).</div></div><div class='defect'><div class='dsym'>VERIFICA-5 — classificazione riproducibilità mancante</div><div class='dcause'>aggiunta §2.2 per componente SENZA inventare tolleranze — il tier statistico resta inutilizzato (nessun componente stocastico in Fase 1).</div></div><div class='defect'><div class='dsym'>ODR-06 — stimatore di data-di-roll difettoso al primo contatto col dato reale (D-064)</div><div class='dcause'>`_first_cross` (cross globale) produceva roll_n=2021-09-05 in 8/24 roll; M1=242/M2=0.611 erano artefatti. STOP prima del verdetto; ri-misurato UNA volta con lo stimatore corretto (D-065) → RETAIN v=FALSE, `n` ratificata (D-068).</div></div>
-</section>
-
-<section>
+  <p class="note">Le fasi del sistema e il loro stato. Dove una decisione umana manca, il
+  sistema si <b>ferma</b> invece di procedere con un valore di comodo.</p>
+  <div class='gl'><div class='gl-h'><span class='gnm'>Fase 1 — perimetro a costo zero</span><span class='b b-pass'>verde</span></div><div class='gd'>contratti, roll, sessioni, qualità dati su fixture sintetiche.</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Fase 2 — acquisto dati reali</span><span class='b b-pass'>verde</span></div><div class='gd'>OHLCV + Open Interest comprati sotto budget, con preventivo prima della spesa.</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Fase 3 — pipeline dei cancelli G1–G6</span><span class='b b-pass'>verde</span></div><div class='gd'>eseguita sul sottoinsieme reale 2021-2026, Train+Validation soltanto.</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Fase 4 — macchina a stati + riproducibilità</span><span class='b b-pass'>verde</span></div><div class='gd'>stato del ciclo di vita e ricostruzione da git archive verificati.</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Cancello 7 — Red Team</span><span class='b b-blk'>bloccato</span></div><div class='gd'>batteria avversariale non ancora cablata: nulla può proseguire oltre (OQ-16).</div></div><div class='gl'><div class='gl-h'><span class='gnm'>Fasi 5+ — holdout, MES, live</span><span class='b b-na'>in attesa</span></div><div class='gd'>a valle del cancello 7 e di decisioni di governance non ancora prese.</div></div>
+</section><section id="difetti" class="sec">
+  <h2>Difetti intercettati (sintomo + causa)</h2>
+  <p class="note">Sette problemi trovati e corretti lungo il percorso. Sono qui perché la
+  capacità di <b>intercettarli</b> è il vero prodotto: ogni riga è un modo in cui un
+  risultato falso avrebbe potuto passare, e non è passato.</p>
+  <table class="tbl">
+    <thead><tr><th>sintomo</th><th>causa e correzione</th></tr></thead>
+    <tbody><tr><td class='sym'>P4-01 — `.gitignore` escludeva il codice sorgente</td><td class='cause'>la regola non ancorata `data/` combaciava col sotto-package `src/es_quant/data/`: 3 componenti fuori dal version control. Verde su disco ma non da clone. Fix: regole ancorate alla root.</td></tr><tr><td class='sym'>RILIEVO-1 — V-2 confrontava regole DIVERSE</td><td class='cause'>il test confrontava `X.v.0` (volume) vs `X.n.0` (OI) — normale rollino in date diverse. §6.2 V-2 riguarda la STESSA regola a offset consecutivi. Corretti motore e test.</td></tr><tr><td class='sym'>RILIEVO-2 — pandas era abitudine, non scelta (D-014)</td><td class='cause'>i default `label/closed` di `resample` introducono lookahead SILENZIOSO. Riscritti in Polars (Timeframe, Quality, ContinuousView): Polars obbliga a dichiararlo.</td></tr><tr><td class='sym'>RILIEVO-3 — verde-su-disco ≠ verde-da-clone</td><td class='cause'>un file non versionato passa in locale ma non da clone pulito. Contromisura: `test_repo_reconstruction.py` ricostruisce da `git archive HEAD` ed esegue la suite.</td></tr><tr><td class='sym'>VERIFICA-4 — #9 era runtime, non by-type</td><td class='cause'>`isinstance`/`hasattr` provano solo la tesi debole. La garanzia &#x27;non-tradable per tipo&#x27; è reale solo se un type checker la applica: aggiunto `test_type_safety.py` (mypy --strict).</td></tr><tr><td class='sym'>VERIFICA-5 — classificazione riproducibilità mancante</td><td class='cause'>aggiunta §2.2 per componente SENZA inventare tolleranze — il tier statistico resta inutilizzato (nessun componente stocastico in Fase 1).</td></tr><tr><td class='sym'>ODR-06 — stimatore di data-di-roll difettoso al primo contatto col dato reale (D-064)</td><td class='cause'>`_first_cross` (cross globale) produceva roll_n=2021-09-05 in 8/24 roll; M1=242/M2=0.611 erano artefatti. STOP prima del verdetto; ri-misurato UNA volta con lo stimatore corretto (D-065) → RETAIN v=FALSE, `n` ratificata (D-068).</td></tr></tbody>
+  </table>
+</section><section id="aperto" class="sec">
   <h2>Cosa resta aperto</h2>
-  <div class="panel"><table><tbody><tr><td class='k'>Componenti di costo G2/G3/G4/G5</td><td>ODR costi UNPOPULATED (P-4) — decisione umana, fail-closed</td></tr><tr><td class='k'>7 soglie statistics.*</td><td>D-114 PROPOSED, non ratificata — ex-ante sul frame congelato</td></tr><tr><td class='k'>5 soglie robustezza G6</td><td>D-115 PROPOSED, non ratificata — ex-ante sul frame congelato</td></tr><tr><td class='k'>Floor screening.orb_min_trades</td><td>D-110 PROPOSED, non ratificata — distribuzione empirica frame congelato</td></tr><tr><td class='k'>Finestra OOS ratificata 1095d in G5</td><td>ODR-02/D-097 presente ma non inlined — deliberatamente assente dal file</td></tr><tr><td class='k'>Cancello 7 (Tier-1/Tier-2 divergence)</td><td>🔴 OQ-16 / D-045 — Tier-2 non costruito, strutturalmente irraggiungibile</td></tr><tr><td class='k'>Split ratificato</td><td>D-082 — span 16y non congelato; il subset ~2y è correttamente rifiutato</td></tr><tr><td class='k'>Calendario di sessione RTH di produzione</td><td>🔴 OQ-17 / D-101 — richiesto DATO ESTERNO CME (non inferibile)</td></tr><tr><td class='k'>ODR aperte (calibrazione/governance)</td><td>ODR-02/03/04/05/07/08/09/10/12 — decisioni umane, mai defaultate</td></tr></tbody></table></div>
-</section>
-
-<div class="seg">
-  <b>Segregazione (OQ-15 / C-05)</b> — questa pagina espone SOLO metriche di processo,
-  stato del ciclo di vita e i risultati aggregati di un'ipotesi <b>chiusa</b> (ORB). Nessun
-  risultato OOS per-alpha di un'ipotesi in-progress; il contenuto dell'holdout non compare
-  <b>mai</b>, nemmeno aggregato. Il generatore rifiuta per costruzione (fail-closed) la
-  lettura di qualunque sorgente holdout / dato reale.
-</div>
-
-<footer>
-  Generato da <span class="mono">scripts/build_dashboard.py</span> — legge solo file di stato
-  committati, non esegue la pipeline, non tocca dati reali né chiavi.
-  Generazione: 2026-09-14 22:37 UTC · HEAD 707b570.
-</footer>
-</div></body></html>
+  <p class="note">Le decisioni umane e le domande ancora sospese. Nessuna è stata risolta
+  con un valore di default: restano esplicitamente aperte, e bloccano ciò che dipende da
+  loro.</p>
+  <div class="oigrid"><div class='oi'><div class='oik'>Componenti di costo G2/G3/G4/G5</div><div class='oiv'>ODR costi UNPOPULATED (P-4) — decisione umana, fail-closed</div></div><div class='oi'><div class='oik'>7 soglie statistics.*</div><div class='oiv'>D-114 PROPOSED, non ratificata — ex-ante sul frame congelato</div></div><div class='oi'><div class='oik'>5 soglie robustezza G6</div><div class='oiv'>D-115 PROPOSED, non ratificata — ex-ante sul frame congelato</div></div><div class='oi'><div class='oik'>Floor screening.orb_min_trades</div><div class='oiv'>D-110 PROPOSED, non ratificata — distribuzione empirica frame congelato</div></div><div class='oi'><div class='oik'>Finestra OOS ratificata 1095d in G5</div><div class='oiv'>ODR-02/D-097 presente ma non inlined — deliberatamente assente dal file</div></div><div class='oi'><div class='oik'>Cancello 7 (Tier-1/Tier-2 divergence)</div><div class='oiv'>🔴 OQ-16 / D-045 — Tier-2 non costruito, strutturalmente irraggiungibile</div></div><div class='oi'><div class='oik'>Split ratificato</div><div class='oiv'>D-082 — span 16y non congelato; il subset ~2y è correttamente rifiutato</div></div><div class='oi'><div class='oik'>Calendario di sessione RTH di produzione</div><div class='oiv'>🔴 OQ-17 / D-101 — richiesto DATO ESTERNO CME (non inferibile)</div></div><div class='oi'><div class='oik'>ODR aperte (calibrazione/governance)</div><div class='oiv'>ODR-02/03/04/05/07/08/09/10/12 — decisioni umane, mai defaultate</div></div></div>
+</section><footer>
+  <div class="segfoot"><b>Segregazione (regola C-05)</b> — questa pagina espone SOLO
+  metriche di processo, lo stato del ciclo di vita e i risultati aggregati di un'ipotesi
+  <b>chiusa</b> (ORB). Nessun risultato per-alpha di un'ipotesi ancora aperta; il
+  contenuto dell'holdout non compare <b>mai</b>, nemmeno aggregato. Il generatore rifiuta
+  per costruzione la lettura di qualunque sorgente holdout o dato reale, e ricontrolla il
+  proprio output prima di pubblicarlo.</div>
+  <div class="gen">Generato da <span class="mono">scripts/build_dashboard.py</span> —
+  legge solo file di stato committati, non esegue la pipeline, non tocca dati reali né
+  chiavi. Generazione 2026-09-15 00:09 UTC · HEAD 5efa154.</div>
+</footer></main></div><script>
+(function(){
+  var links=document.querySelectorAll('nav a[data-s]');
+  function show(id){
+    document.querySelectorAll('section.sec').forEach(function(s){
+      s.classList.toggle('on', s.id===id);
+    });
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('data-s')===id); });
+  }
+  links.forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      show(a.getAttribute('data-s'));
+      if(history.replaceState){ history.replaceState(null,'','#'+a.getAttribute('data-s')); }
+      window.scrollTo(0,0);
+    });
+  });
+  var h=(location.hash||'').replace('#','');
+  if(h && document.getElementById(h)){ show(h); }
+})();
+</script></body></html>
