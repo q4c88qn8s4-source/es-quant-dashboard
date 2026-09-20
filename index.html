@@ -153,27 +153,27 @@ footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--line)}
   .oigrid{grid-template-columns:1fr}
 }
 </style>
-</head><body><div class="top"><div class="brand">ES-Quant-Desk<span class="tag">un sistema costruito per rifiutare</span></div><div class="tmeta"><span class="pill stop">Pipeline ferma al cancello 7</span><span class="hd">HEAD 67980c7 · 2026-09-20 11:47 UTC</span></div></div><div class="shell"><nav aria-label="Sezioni"><div class="grp">Adesso</div><a class="nl on" data-s="adesso" href="#adesso"><span class="dot" style="background:#4FB07C"></span>Adesso</a><a class="nl" data-s="attende" href="#attende"><span class="dot" style="background:#E0A33E"></span>Aspetta te</a><a class="nl" data-s="storico" href="#storico"><span class="dot" style="background:#858D99"></span>Storico ipotesi</a><div class="grp">Ipotesi (ORB)</div><a class="nl" data-s="verdetto" href="#verdetto"><span class="dot" style="background:#D4634A"></span>Verdetto ORB</a><a class="nl" data-s="rumore" href="#rumore"><span class="dot" style="background:#4D96F0"></span>Osservato vs rumore</a><a class="nl" data-s="cancelli" href="#cancelli"><span class="dot" style="background:#E0A33E"></span>I dodici cancelli</a><a class="nl" data-s="config" href="#config"><span class="dot" style="background:#858D99"></span>Le configurazioni</a><div class="grp">Sistema</div><a class="nl" data-s="dati" href="#dati"><span class="dot" style="background:#4FB07C"></span>I dati</a><a class="nl" data-s="salute" href="#salute"><span class="dot" style="background:#4FB07C"></span>Salute del sistema</a><a class="nl" data-s="difetti" href="#difetti"><span class="dot" style="background:#E0A33E"></span>Difetti intercettati</a><a class="nl" data-s="aperto" href="#aperto"><span class="dot" style="background:#D4634A"></span>Cosa resta aperto</a></nav><main><noscript><style>.sec{display:block !important}nav{display:none}main{max-width:940px;margin:0 auto}</style><div class="nsbanner">JavaScript disattivato: tutte le sezioni sono mostrate in sequenza.</div></noscript><section id="adesso" class="sec on">
+</head><body><div class="top"><div class="brand">ES-Quant-Desk<span class="tag">un sistema costruito per rifiutare</span></div><div class="tmeta"><span class="pill stop">Pipeline ferma al cancello 7</span><span class="hd">HEAD b9bda11 · 2026-09-20 12:11 UTC</span></div></div><div class="shell"><nav aria-label="Sezioni"><div class="grp">Adesso</div><a class="nl on" data-s="adesso" href="#adesso"><span class="dot" style="background:#4FB07C"></span>Adesso</a><a class="nl" data-s="attende" href="#attende"><span class="dot" style="background:#E0A33E"></span>Aspetta te</a><a class="nl" data-s="storico" href="#storico"><span class="dot" style="background:#858D99"></span>Storico ipotesi</a><div class="grp">Ipotesi (ORB)</div><a class="nl" data-s="verdetto" href="#verdetto"><span class="dot" style="background:#D4634A"></span>Verdetto ORB</a><a class="nl" data-s="rumore" href="#rumore"><span class="dot" style="background:#4D96F0"></span>Osservato vs rumore</a><a class="nl" data-s="cancelli" href="#cancelli"><span class="dot" style="background:#E0A33E"></span>I dodici cancelli</a><a class="nl" data-s="config" href="#config"><span class="dot" style="background:#858D99"></span>Le configurazioni</a><div class="grp">Sistema</div><a class="nl" data-s="dati" href="#dati"><span class="dot" style="background:#4FB07C"></span>I dati</a><a class="nl" data-s="salute" href="#salute"><span class="dot" style="background:#4FB07C"></span>Salute del sistema</a><a class="nl" data-s="difetti" href="#difetti"><span class="dot" style="background:#E0A33E"></span>Difetti intercettati</a><a class="nl" data-s="aperto" href="#aperto"><span class="dot" style="background:#D4634A"></span>Cosa resta aperto</a></nav><main><noscript><style>.sec{display:block !important}nav{display:none}main{max-width:940px;margin:0 auto}</style><div class="nsbanner">JavaScript disattivato: tutte le sezioni sono mostrate in sequenza.</div></noscript><section id="adesso" class="sec on">
   <h2>Adesso <span class="pill ok">sistema attivo</span></h2>
   <div class="kpi">
     <div class="card"><div class="kn">6</div>
-      <div class="kl">fase corrente<br><span class="dim">6 — ricerca alpha (fasi 1-5 complete; ORB chiusa NO_EDGE_DETECTED; H1 pre-registrata; H2 in preparazione)</span></div></div>
-    <div class="card"><div class="kn mono">67980c7</div>
-      <div class="kl">ultimo commit<br><span class="dim">2026-09-20 11:47 UTC</span></div></div>
+      <div class="kl">fase corrente<br><span class="dim">6 — ricerca alpha (fasi 1-5 complete; ORB chiusa NO_EDGE_DETECTED, verdetto NETTO che regge la correzione del frame; H1 pre-registrata; H2 in preparazione)</span></div></div>
+    <div class="card"><div class="kn mono">b9bda11</div>
+      <div class="kl">ultimo commit<br><span class="dim">2026-09-20 12:11 UTC</span></div></div>
     <div class="card"><div class="kn">20 / 20</div>
       <div class="kl">prove residue nella famiglia attiva<br><span class='dim'>0 consumate · HF_OVERNIGHT_GAP_FADE (H1)</span></div></div>
   </div>
   <table class="tbl">
     <tbody>
-      <tr><td class="k">In lavorazione</td><td>recupero del decodificatore OHLCV-1m come codice committato (viveva solo in /tmp, difetto di processo D-117); il frame congelato 16 anni è ora ricostruibile da git con hash identico a quello ratificato, verificato bit-per-bit sui veri input</td></tr>
-      <tr><td class="k">Prossimo passo</td><td>Eseguire i cancelli G1→G6 su H1 sul frame reale congelato; nel walk-forward riportare quante finestre non sono scorabili (esito INCONCLUSIVE per mancanza di potenza, non FAIL) e la frazione di uscite a tempo</td></tr>
+      <tr><td class="k">In lavorazione</td><td>costruttore RTH-5m condiviso ratificato (un solo punto di esclusione dei giorni non pieni, festività e half-day rimossi per intero, mai troncati) e frame ORB corretto registrato; nel registro delle decisioni è ora scritta la regola che dice quando un difetto del frame può far cadere un verdetto e quando no</td></tr>
+      <tr><td class="k">Prossimo passo</td><td>Rifare la pre-registrazione di H1 contro il frame corretto (l&#x27;impronta è cambiata, quindi la pre-registrazione va rifatta), poi eseguire i cancelli G1→G6 su H1: fail-closed onesto elencando quali decisioni non sono state prese e cosa blocca ciascuna, più l&#x27;esercizio con veicoli dichiarati per la frazione di uscite a tempo e il conteggio delle finestre non scorabili</td></tr>
       <tr><td class="k">Ipotesi attiva</td><td>H1 — HF_OVERNIGHT_GAP_FADE (pre-registrata, 2 configurazioni, 1 prova contata; nessun trial di ricerca ancora consumato)</td></tr>
     </tbody>
   </table>
   <p class="note dim">Il «prossimo passo» è scritto a mano in <span class="mono">docs/NOW.md</span>
   e aggiornato prima di ogni commit: non è deducibile dai file, quindi ha un canale proprio.</p>
   <h3>Ultimi commit</h3>
-  <div class='gl'><div class='gl-h'><span class='gnm mono'>67980c7</span></div><div class='gd'>feat(data-recon): recupera il decodificatore OHLCV-1m come codice committato — il frame congelato 16y ora ricostruibile da git, hash ratificato riprodotto ESATTAMENTE (D-117)</div></div>
+  <div class='gl'><div class='gl-h'><span class='gnm mono'>b9bda11</span></div><div class='gd'>feat(rth-5m-builder): costruttore RTH-5m condiviso ratificato — UN solo punto di esclusione (giorni non pieni rimossi per intero, mai troncati); frame ORB ricomposto, nuovo hash 5e7356ab ratificato (D-118); criterio NET-vs-MARGINAL con derivazione</div></div>
   <h3>Famiglie chiuse (residuo storico, non vivo)</h3><div class='gl'><div class='gl-h'><span class='gnm'>HF_ORB_OPENING_RANGE</span><span class='b b-blk'>chiusa</span></div><div class='gd'>12 / 20 prove usate · aperta da ES_ALPHA_0001. 12 config = UN trial grid-sized del DIAGNOSTIC_RUN (count()=12, n_trials()=1, D-053). NON il denominatore di ricerca (D-112). Famiglia CHIUSA: l&#x27;ipotesi ORB è terminale «nessun vantaggio».</div></div>
 </section><section id="attende" class="sec">
   <h2>Aspetta te <span class="pill stop">9 decisioni</span></h2>
@@ -283,9 +283,9 @@ footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--line)}
   <div class="kpi">
     <div class="card"><div class="kn ok">non fornito in questa generazione</div>
       <div class="kl">test automatici</div></div>
-    <div class="card"><div class="kn ok">pulito — 96 file sorgente, 0 problemi</div>
+    <div class="card"><div class="kn ok">pulito — 97 file sorgente, 0 problemi</div>
       <div class="kl">controllo dei tipi</div></div>
-    <div class="card"><div class="kn">D-117 (ultima registrazione nel log)</div>
+    <div class="card"><div class="kn">D-118 (ultima registrazione nel log)</div>
       <div class="kl">ultima decisione registrata</div></div>
   </div>
   <p class="note">Le fasi del sistema e il loro stato. Dove una decisione umana manca, il
@@ -315,7 +315,7 @@ footer{margin-top:40px; padding-top:22px; border-top:1px solid var(--line)}
   proprio output prima di pubblicarlo.</div>
   <div class="gen">Generato da <span class="mono">scripts/build_dashboard.py</span> —
   legge solo file di stato committati, non esegue la pipeline, non tocca dati reali né
-  chiavi. Generazione 2026-09-20 11:47 UTC · HEAD 67980c7.</div>
+  chiavi. Generazione 2026-09-20 12:11 UTC · HEAD b9bda11.</div>
 </footer></main></div><script>
 (function(){
   var links=document.querySelectorAll('nav a[data-s]');
